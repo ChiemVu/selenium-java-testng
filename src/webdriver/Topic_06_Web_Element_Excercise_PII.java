@@ -24,8 +24,7 @@ public class Topic_06_Web_Element_Excercise_PII {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		//driver = new FirefoxDriver();
 		driver = new ChromeDriver();
-		rand = new Random();
-		
+		rand = new Random();		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		emailAddress = "automation" + rand.nextInt(9999) + "@gmail.com";
@@ -35,7 +34,7 @@ public class Topic_06_Web_Element_Excercise_PII {
 		password = "12345678";
 	}
 	
-	//@Test
+	@Test
 	public void Login_01_Empty_Email_Password() {
 		driver.get("http://live.techpanda.org/");
 		
@@ -48,7 +47,7 @@ public class Topic_06_Web_Element_Excercise_PII {
 		Assert.assertEquals(driver.findElement(By.cssSelector("#advice-required-entry-pass")).getText(), "This is a required field.");
 	}
 
-	//@Test
+	@Test
 	public void Login_02_Invalid_Email() {
 		driver.get("http://live.techpanda.org/");
 		//click my account
@@ -61,7 +60,7 @@ public class Topic_06_Web_Element_Excercise_PII {
 		Assert.assertEquals(driver.findElement(By.cssSelector("#advice-validate-email-email")).getText(), "Please enter a valid email address. For example johndoe@domain.com.");
 	}
 
-	//@Test
+	@Test
 	public void Login_03_Invalid_Password() {
 		driver.get("http://live.techpanda.org/");
 		//click my account
@@ -73,7 +72,7 @@ public class Topic_06_Web_Element_Excercise_PII {
 		sleepInSecond(3);
 		Assert.assertEquals(driver.findElement(By.cssSelector("#advice-validate-password-pass")).getText(), "Please enter 6 or more characters without leading or trailing spaces.");
 	}
-	//@Test
+	@Test
 	public void Login_04_Incorrect_Email_Password() {
 		driver.get("http://live.techpanda.org/");
 		//click my account
